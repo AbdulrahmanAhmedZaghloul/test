@@ -16,7 +16,6 @@ import PageShorts from './components/Pages/PageShorts/PageShorts';
 import PageTshirts from './components/Pages/PageTshirts/PageTshirts';
 import PageSocks from './components/Pages/PageSocks/PageSocks';
 import PageUndershirt from './components/Pages/PageUndershirt/PageUndershirt';
-import LayoutOff from './components/LayoutOff/LayoutOff';
 let routering = createHashRouter([
   {
     path: "",
@@ -27,59 +26,25 @@ let routering = createHashRouter([
       { path: "/AboutUs", element: <AboutUs /> },
       { path: "/ContentUs", element: <ContentUs /> },
       { path: "/Categories", element: <Categories /> },
-      {path: "/Hoodies", element: <LayoutOff />
-        , children: [
-          { index: true, element: <PageHoodies /> },
-          { index: 'Hoodies', element: <PageHoodies /> },
-          { path: "Shorts", element: <PageShorts /> },
-          { path: "Tshirts", element: <PageTshirts /> },
-          { path: "Socks", element: <PageSocks /> },
-          { path: "Undershirt", element: <PageUndershirt /> },
-        ]
+      {
+        path: "/Hoodies", element: <PageHoodies />
+
       },
-      {path: "/Shorts", element: <LayoutOff />
-        , children: [
-          { index: true, element: <PageShorts /> },
-          { index: "Shorts", element: <PageShorts /> },
-          { path: "Hoodies", element: <PageHoodies /> },
-          { path: "Shorts", element: <PageShorts /> },
-          { path: "Tshirts", element: <PageTshirts /> },
-          { path: "Socks", element: <PageSocks /> },
-          { path: "Undershirt", element: <PageUndershirt /> },
-        ]
+      {
+        path: "/Shorts", element: <PageShorts />
+
       },
-      {path: "/Tshirts", element: <LayoutOff />
-        , children: [
-          { index: true, element: <PageTshirts /> },
-          { index: "Tshirts", element: <PageTshirts /> },
-          { path: "Hoodies", element: <PageHoodies /> },
-          { path: "Shorts", element: <PageShorts /> },
-          { path: "Socks", element: <PageSocks /> },
-          { path: "Undershirt", element: <PageUndershirt /> },
-        ]
+      {
+        path: "/Tshirts", element: <PageTshirts />
+
       },
-      {path: "/Socks", element: <LayoutOff />
-        , children: [
-          { index: true, element: <PageSocks /> },
-          { index: "Socks", element: <PageSocks /> },
-          { path: "Hoodies", element: <PageHoodies /> },
-          { path: "Shorts", element: <PageShorts /> },
-          { path: "Shorts", element: <PageShorts /> },
-          { path: "Tshirts", element: <PageTshirts /> },
-          { path: "Undershirt", element: <PageUndershirt /> },
-        ]
+      {
+        path: "/Socks", element: <PageSocks />
+
       },
-      {path: "/Undershirt", element: <LayoutOff />
-        ,
-        children: [
-          { index: true, element: <PageUndershirt /> },
-          { index: "Undershirt", element: <PageUndershirt /> },
-          { path: "Hoodies", element: <PageHoodies /> },
-          { path: "Shorts", element: <PageShorts /> },
-          { path: "Shorts", element: <PageShorts /> },
-          { path: "Tshirts", element: <PageTshirts /> },
-          { path: "Socks", element: <PageSocks /> },
-        ]
+      {
+        path: "/Undershirt", element: <PageUndershirt />
+
       },
       { path: "*", element: <Erorr /> },
     ],
