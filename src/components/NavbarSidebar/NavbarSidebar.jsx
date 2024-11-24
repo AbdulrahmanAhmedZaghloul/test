@@ -77,9 +77,7 @@ function NavbarSidebar() {
                     <li className="text-black hover:text-gray-800 mb-2 p-2">
                         <Link className='cursor-pointer px-4 tracking-widest' to={'/ContentUs'}>ContentUs</Link>
                     </li>
-                    <li className="text-black hover:text-gray-800 mb-2 p-2">
-                        <Link className='cursor-pointer px-4 tracking-widest' to={'/Dashboard'}>Dashboard</Link>
-                    </li>
+                 
                 </ul>
             </div>
         </React.Fragment>
