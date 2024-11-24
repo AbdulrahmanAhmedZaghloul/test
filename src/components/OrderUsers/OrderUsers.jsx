@@ -13,8 +13,6 @@ export default function OrderUsers() {
 
             <h1 className='text-2xl font-bold mt-16 mb-6 pt-32 text-gray-500 ms-9 tracking-widest'>Check order</h1>
 
-
-
             <div className='container  mx-auto mb-16 '>
                 <div className='bg-gray-200 rounded-sm p-2'>
                     <p className='w-fit cursor-pointer p-2'
@@ -32,6 +30,7 @@ export default function OrderUsers() {
                         />
                     )}
                 <div className='flex mx-auto flex-wrap'>
+                 
                     <form className='md:w-1/2 w-[90%] mx-auto p-3' >
                         <h2 className='border-b pb-6 text-2xl font-bold text-gray-400 ms-4 tracking-widest'>Billing details</h2>
 
@@ -138,6 +137,7 @@ export default function OrderUsers() {
                             </button>
                         </div>
                     </form>
+
                     <div className='md:w-1/2 w-[90%] mx-auto p-6 '>
                         <div className='md:container border p-5 '>
                             <h3 className=' pb-6 text-2xl font-bold text-gray-500 ms-4 tracking-widest'>
@@ -164,8 +164,8 @@ export default function OrderUsers() {
                                 <p className='text-gray-500'>1.500EGP</p>
                             </div>
                         </div>
-
                     </div>
+              
                 </div>
 
             </div>

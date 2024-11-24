@@ -16,7 +16,6 @@ import PageShorts from './components/Pages/PageShorts/PageShorts';
 import PageTshirts from './components/Pages/PageTshirts/PageTshirts';
 import PageSocks from './components/Pages/PageSocks/PageSocks';
 import PageUndershirt from './components/Pages/PageUndershirt/PageUndershirt';
-import Dashboard from './components/Dashboard/Dashboard';
 let routering = createHashRouter([
   {
     path: "",
@@ -30,7 +29,6 @@ let routering = createHashRouter([
       { path: "/Hoodies", element: <PageHoodies /> },
       { path: "/Shorts", element: <PageShorts /> },
       { path: "/Tshirts", element: <PageTshirts /> },
-      { path: "/Dashboard", element: <Dashboard /> },
       { path: "/Socks", element: <PageSocks /> },
       { path: "/Undershirt", element: <PageUndershirt /> },
       { path: "/OrderUsers", element: <OrderUsers /> },
