@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'; // Import PropTypes
 
-import content4 from '../../image/about/person_1.jpg';
-import content5 from '../../image/about/person_2.jpg';
-import content6 from '../../image/about/person_3.jpg';
-import content7 from '../../image/about/person_4.jpg';
+import content4 from '../../assets/image/about/person_1.jpg';
+import content5 from '../../assets/image/about/person_2.jpg';
+import content6 from '../../assets/image/about/person_3.jpg';
+import content7 from '../../assets/image/about/person_4.jpg';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Loading from '../../components/Loading/Loading';

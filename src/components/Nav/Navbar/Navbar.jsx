@@ -1,13 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import WAT2 from '../../../image/black.png';
+import WAT2 from '../../../assets/image/black.png';
 import { Link } from 'react-router-dom';
 import NavbarCart from '../NavbarCart/NavbarCart';
 import NavbarSidebar from '../NavbarSidebar/NavbarSidebar';
-// import NavbarCart from '../NavbarCart/NavbarCart';
-// import NavbarSidebar from '../NavbarSidebar/NavbarSidebar';
-// NavbarCart
-// NavbarSidebar
+
 function Navbar() {
     const [isSticky, setIsSticky] = useState(false);
     

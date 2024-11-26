@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import imageErorr from '../../image/8.png'
+import imageErorr from '../../assets/image/8.png'
 
 export default function Erorr() {
     return (<React.Fragment>

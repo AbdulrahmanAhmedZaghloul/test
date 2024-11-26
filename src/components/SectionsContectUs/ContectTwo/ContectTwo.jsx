@@ -1,4 +1,4 @@
-import web from '../../../image/wed.jpg'
+import web from '../../../assets/image/wed.jpg'
 
 function ContectTwo() {
 
