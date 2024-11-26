@@ -36,9 +36,6 @@ function NavbarCart() {
             <i className="cursor-pointer fa-flip-horizontal relative
                  text-black text-[18px] mx-3 fa-solid fa-cart-shopping"
                 onClick={toggleCart}>
-
-
-                    
                 {cartItemCount > 0 && (
                     <span className="absolute fa-flip-horizontal top-[-0.7rem] left-3 bg-gray-900 text-white text-sm py-[0.9px] px-[4px] rounded-full">
                         <span className='py-[1px] p-[5px] text-[10px] font-light text-white'>
