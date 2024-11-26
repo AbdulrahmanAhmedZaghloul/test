@@ -4,6 +4,7 @@ import FromOrdes from '../../components/Ordes/FromOrdes/FromOrdes';
 import DetailsOrdes from '../../components/Ordes/DetailsOrdes/DetailsOrdes';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
+import iconimage from '../../assets/image/black.png'
 
 export default function OrderUsers() {
     const { cart } = useCart();
@@ -17,6 +18,8 @@ export default function OrderUsers() {
         <React.Fragment>
             <Helmet>
                 <title>Check order</title>
+                <link rel="icon" href={iconimage} />
+
             </Helmet>
             <h1 className="text-2xl font-bold mt-16 mb-6 pt-32 text-gray-500 ms-9 tracking-widest">
                 Check order

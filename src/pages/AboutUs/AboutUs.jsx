@@ -8,6 +8,8 @@ import content7 from '../../assets/image/about/person_4.jpg';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Loading from '../../components/Loading/Loading';
+import iconimage from '../../assets/image/black.png'
+
 function AboutUs() {
 
     const [loading, setLoading] = useState(true);
@@ -29,6 +31,7 @@ function AboutUs() {
         <React.Fragment>
             <Helmet>
                 <title>About Us</title>
+                <link rel="icon" href={iconimage} />
             </Helmet>
             <h6 className="text-gray-700 mt-44 mb-6 text-[2rem] text-center font-bold tracking-widest leading-relaxed">About Us</h6>
             <div className='flex justify-center items-center my-3'>

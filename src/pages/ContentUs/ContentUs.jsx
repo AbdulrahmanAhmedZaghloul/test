@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import ContectTwo from '../../components/SectionsContectUs/ContectTwo/ContectTwo';
 import ContectThere from '../../components/SectionsContectUs/ContectThere/ContectThere';
 import ContectMap from '../../components/SectionsContectUs/ContectMap/ContectMap';
+import iconimage from '../../assets/image/black.png'
 
 function ContentUs() {
     const [loading, setLoading] = useState(true);
@@ -25,6 +26,8 @@ function ContentUs() {
         <React.Fragment>
             <Helmet>
                 <title>Contact Us</title>
+                <link rel="icon" href={iconimage} />
+
             </Helmet>
             <main className="mt-[9.5rem]">
                 <h1 className='text-5xl mt-6 pt-2 text-center tracking-widest text-gray-700 font-semibold'>Contact Us</h1>

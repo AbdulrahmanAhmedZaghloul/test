@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/Loading/Loading';
+import { Helmet } from 'react-helmet-async';
+import iconimage from '../../assets/image/black.png'
 
 function AllProducts() {
     const { id } = useParams(); // الحصول على ID الفئة من الرابط
@@ -33,8 +35,11 @@ function AllProducts() {
 
     return (
         <React.Fragment>
+            <Helmet>
+                <title>AllProducts</title>
+                <link rel="icon" href={iconimage} />
+            </Helmet>
             {loading ? <Loading /> : (<>
-
                 <section className="my-16 mt-36 py-6">
                     <h2 className="text-center my-5 text-2xl font-semibold tracking-wider text-gray-500"><Link to={`/`}> Home </Link> / All Products</h2>
                     <div className="flex flex-wrap justify-center items-center">
@@ -86,8 +91,6 @@ function AllProducts() {
                 </section>
             </>
             )}
-
-
         </React.Fragment>
     );
 }
