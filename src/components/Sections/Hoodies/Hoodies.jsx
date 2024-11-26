@@ -1,137 +1,134 @@
-import React from 'react';
-import content1 from '../../../image/Categories/IMG-20241002-WA0031.jpg';
-import content2 from '../../../image/Categories/IMG-1 (3).jpg';
-import DEPT1 from '../../../image/Categories/IMG-1 (5).jpg';
-import DEPT2 from '../../../image/Categories/IMG-1 (4).jpg';
-import SHABOW1 from '../../../image/Categories/IMG-1 (1).jpg';
-import SHABOW2 from '../../../image/Categories/IMG-1 (3).jpg';
-import OVER1 from '../../../image/Categories/IMG-1 (5).jpg';
-import OVER2 from '../../../image/Categories/IMG-1 (1).jpg';
-import TOXIC1 from '../../../image/Categories/IMG-1 (4).jpg';
-import TOXIC2 from '../../../image/Categories/IMG-1 (3).jpg';
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Loading from '../../Loading/Loading';
 
 function Hoodies() {
+    const [categories, setCategories] = useState([]);
+    const [products, setProducts] = useState({});
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const fetchCategories = async () => {
+        try {
+            const response = await axios.get('https://backend.cenchh.com/api/category/getAll');
+            if (response.data.status === 'success') {
+                setCategories(response?.data?.data);
+            } else {
+                throw new Error('Failed to fetch categories');
+            }
+        } catch (error) {
+            setError(error.message);
+        }
+    };
+
+    const fetchProducts = async () => {
+        const fetchedProducts = {};
+        try {
+            for (const category of categories) {
+                const response = await axios.get(`https://backend.cenchh.com/api/product/getAll/${category.id}`);
+                if (response?.data?.status === 'success') {
+                    fetchedProducts[category?.id] = response?.data?.data;
+                }
+            }
+            setProducts(fetchedProducts);
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchCategories();
+    }, []);
+
+    useEffect(() => {
+        if (categories.length > 0) {
+            fetchProducts();
+        }
+    }, [categories]);
+
+    // Polling to refresh data every 30 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (categories.length > 0) {
+                fetchProducts();
+            }
+        }, 1000); // انا هنا بجيب الداتا كل 1 ثانيه 
+
+        return () => clearInterval(interval); // تنظيف المؤقت عند إزالة الكومبوننت
+    }, [categories]);
+
+    if (error) return <p>Error: {error}</p>;
+
     return (
         <React.Fragment>
-            <h2 className='text-center my-3 text-xl font-semibold tracking-wider'>Hoodies</h2>
-            <div className='mx-auto w-full flex justify-center'>
-                <button className='w-[8rem] ms-2 text-[0.9rem] px-1 py-1 my-2 -skew-x-[15deg] border border-gray-600'>
-                    <span className='text-black tracking-widest'>
-                    <Link to={'/Hoodies'}>  VIEW ALL
-                    
-                    </Link>
-                    </span>
-                </button>
-            </div>
-            <div className='flex flex-wrap justify-center items-center'>
-                <div className='xl:w-[20%] lg:w-[30%] md:w-[50%] w-[80%] p-5'>
-                    <div className='relative group mb-2'>
-                        <img className='w-full  object-contain' src={content1} alt="Content 1" />
-                        <img
-                            className='w-full  object-contain absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100'
-                            src={content2}
-                            alt="Content 2"
-                        />
-                        <div className='bg-black  py-1 w-[90%] left-3 absolute bottom-6  opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
-                            <p className='text-center text-white text-[12px] font-semibold mx-auto flex justify-center'>Quick view</p>
-                        </div>
-                    </div>
-                    <p className='text-center text-[13px] font-semibold'>
-                        UNISEX BLACK EDITION WORLD HOODIE
-                        <br />
-                        <span className='text-[12px]'>
-                            LE 800.00
-                        </span>
-                    </p>
-                </div>
+            {loading ? (
+                <Loading />
+            ) : (
+                <>
+                    {categories?.map((category) => (
+                        <section key={category?.id} className="mb-16">
+                            <h2 className="text-center my-3 text-xl font-semibold tracking-wider">
+                                {category.name}
+                            </h2>
+                            <div className="mx-auto w-full flex justify-center">
+                                <Link
+                                    to={`/category/${category?.id}`}
+                                    className="text-black w-[8rem] ms-2 text-[0.9rem] px-1 py-1 my-2 -skew-x-[15deg] border border-gray-600 tracking-widest text-center"
+                                >
+                                    VIEW ALL
+                                </Link>
+                            </div>
 
-                <div className='xl:w-[20%] lg:w-[30%] md:w-[50%] w-[80%] p-5'>
-                    <div className='relative group mb-2'>
-                        <img className='w-full  object-contain' src={DEPT1} alt="Content 1" />
-                        <img
-                            className='w-full  object-contain absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100'
-                            src={DEPT2}
-                            alt="Content 2"
-                        />
-                        <div className='bg-black  py-1 w-[90%] left-3 absolute bottom-6  opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
-                            <p className='text-center text-white text-[12px] font-semibold mx-auto flex justify-center'>Quick view</p>
-                        </div>
-                    </div>
-                    <p className='text-center text-[13px] font-semibold'>
-                        UNISEX COBRA HOODIE
-                        <br />
-                        <span className='text-[12px]'>
-                            LE 800.00
-                        </span>
-                    </p>
-                </div>
-
-                <div className='xl:w-[20%] lg:w-[30%] md:w-[50%] w-[80%] p-5'>
-                    <div className='relative group mb-2'>
-                        <img className='w-full  object-contain' src={SHABOW1} alt="Content 1" />
-                        <img
-                            className='w-full  object-contain absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100'
-                            src={SHABOW2}
-                            alt="Content 2"
-                        />
-                        <div className='bg-black  py-1 w-[90%] left-3 absolute bottom-6  opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
-                            <p className='text-center text-white text-[12px] font-semibold mx-auto flex justify-center'>Quick view</p>
-                        </div>
-                    </div>
-                    <p className='text-center text-[13px] font-semibold'>
-                        UNISEX ALTERNATIVE CULTURE HOODIE
-                        <br />
-                        <span className='text-[12px]'>
-                            LE 800.00
-                        </span>
-                    </p>
-                </div>
-
-                <div className='xl:w-[20%] lg:w-[30%] md:w-[50%] w-[80%] p-5'>
-                    <div className='relative group mb-2'>
-                        <img className='w-full  object-contain' src={OVER1} alt="Content 1" />
-                        <img
-                            className='w-full  object-contain absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100'
-                            src={OVER2}
-                            alt="Content 2"
-                        />
-                        <div className='bg-black  py-1 w-[90%] left-3 absolute bottom-6  opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
-                            <p className='text-center text-white text-[12px] font-semibold mx-auto flex justify-center'>Quick view</p>
-                        </div>
-                    </div>
-                    <p className='text-center text-[13px] font-semibold'>
-                        UNISEX TOGETHER HOODIE
-                        <br />
-                        <span className='text-[12px]'>
-                            LE 800.00
-                        </span>                    </p>
-                </div>
-
-                <div className='xl:w-[20%] lg:w-[30%] md:w-[50%] w-[80%] p-5'>
-                    <div className='relative group  mb-2'>
-                        <img className='w-full  object-contain' src={TOXIC1} alt="Content 1" />
-                        <img
-                            className='w-full  object-contain absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100'
-                            src={TOXIC2}
-                            alt="Content 2"
-                        />
-                        <div className='bg-black  py-1 w-[90%] left-3 absolute bottom-6  opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
-                            <p className='text-center text-white text-[12px] font-semibold mx-auto flex justify-center'>Quick view</p>
-                        </div>
-
-                    </div>
-                    <p className='text-center text-[13px] font-semibold'>
-                        UNISEX CHINESE HOODIE
-                        <br />
-                        <span className="line-through text-[11px] mx-2">LE 650.00</span>
-                        <span className='text-[12px]'>
-                            LE 650.00
-                        </span>
-                    </p>
-                </div>
-
-            </div>
+                            <div className="flex flex-wrap justify-center items-center">
+                                {products[category?.id]?.slice(0, 4).map((product) => (
+                                    <div
+                                        key={product?.id}
+                                        className="xl:w-[25%] lg:w-[30%] md:w-[50%] w-[80%] p-5"
+                                    >
+                                        <Link to={`/product/${product.id}`} state={{ product }}>
+                                            <div className="relative group m-3 overflow-hidden">
+                                                <img
+                                                    className="w-full object-contain"
+                                                    src={product?.imag}
+                                                    alt={product?.name}
+                                                />
+                                                <div className="absolute inset-0 bg-black opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
+                                                <div className="absolute inset-x-0 top-100 group-hover:top-0 flex flex-col justify-center transform translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
+                                                    {product.stock.map((size) => (
+                                                        <span
+                                                            key={size.size_id}
+                                                            className="bg-white w-fit text-gray-800 px-4 py-2 m-2 rounded-md shadow-lg hover:bg-gray-200 transition-all"
+                                                        >
+                                                            size :: {size.size}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            <div className="px-2 mt-2">
+                                                <p className="text-gray-600 text-base mx-auto text-center tracking-widest">
+                                                    {product.details}
+                                                </p>
+                                                <div className="flex justify-center mt-4 mx-auto text-center flex-col">
+                                                    <p className="text-center text-gray-800 text-base font-normal">
+                                                        {product?.name}
+                                                    </p>
+                                                    <span className="text-gray-800 text-base tracking-widest">
+                                                        LE {product?.price}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    ))}
+                </>
+            )}
         </React.Fragment>
     );
 }
