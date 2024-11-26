@@ -1,16 +1,37 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function NavbarSidebar() {
+    const [categories, setCategories] = useState([]);
+    const [error, setError] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
     const [isCategoryOpen, setIsCategoryOpen] = useState(false); // State for category dropdown
-    const sidebarRef = useRef(null); // Ref for the sidebar
+    const sidebarRef = useRef(null); 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
     const toggleCategory = () => {
         setIsCategoryOpen(!isCategoryOpen); // Toggle category visibility
     };
+    // Fetch categories
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response = await axios.get('https://backend.cenchh.com/api/category/getAll');
+                if (response.data.status === 'success') {
+                    setCategories(response?.data?.data);
+                } else {
+                    throw new Error('Failed to fetch categories');
+                }
+            } catch (error) {
+                setError(error.message);
+            }
+        };
+        fetchCategories();
+    }, []);
+
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
@@ -23,6 +44,11 @@ function NavbarSidebar() {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [sidebarRef]);
+
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
+
     return (
         <React.Fragment>
             <button onClick={toggleSidebar} className="p-3">
@@ -47,24 +73,16 @@ function NavbarSidebar() {
                         </div>
                         {isCategoryOpen && (
                             <ul className="pl-4 border-b">
-                                <li className="text-black hover:text-gray-800 p-2">
-                                    <Link className='cursor-pointer px-4 tracking-widest' to={'/Categories'}>Categories</Link>
-                                </li>
-                                <li className="text-black hover:text-gray-800 p-2">
-                                    <Link className='cursor-pointer px-4 tracking-widest' to={'/Hoodies'}>Hoodies</Link>
-                                </li>
-                                <li className="text-black hover:text-gray-800 p-2">
-                                    <Link className='cursor-pointer px-4 tracking-widest' to={'/Shorts'}>Shorts</Link>
-                                </li>
-                                <li className="text-black hover:text-gray-800 p-2">
-                                    <Link className='cursor-pointer px-4 tracking-widest' to={'/Tshirts'}>T-Shirts</Link>
-                                </li>
-                                <li className="text-black hover:text-gray-800 p-2">
-                                    <Link className='cursor-pointer px-4 tracking-widest' to={'/Socks'}>Socks</Link>
-                                </li>
-                                <li className="text-black hover:text-gray-800 p-2">
-                                    <Link className='cursor-pointer px-4 tracking-widest' to={'/Undershirt'}>Undershirt</Link>
-                                </li>
+                                {categories.map((category) => (
+                                    <li key={category?.id} className="text-black hover:text-gray-800 p-2">
+                                        <Link
+                                            className="cursor-pointer px-4 tracking-widest"
+                                            to={`/category/${category?.id}`}
+                                        >
+                                            {category?.name}
+                                        </Link>
+                                    </li>
+                                ))}
                             </ul>
                         )}
                     </li>
@@ -74,7 +92,7 @@ function NavbarSidebar() {
                     <li className="text-black hover:text-gray-800 mb-2 p-2">
                         <Link className='cursor-pointer px-4 tracking-widest' to={'/ContentUs'}>ContentUs</Link>
                     </li>
-                 
+
                 </ul>
             </div>
         </React.Fragment>
