@@ -33,16 +33,17 @@ function NavbarCart() {
 
     return (
         <>
-            <i
-                className="cursor-pointer relative text-black text-xl mx-3 fa-solid fa-cart-shopping"
-                onClick={toggleCart}
-            >
+            <i className="cursor-pointer fa-flip-horizontal relative
+                 text-black text-[18px] mx-3 fa-solid fa-cart-shopping"
+                onClick={toggleCart}>
+
+
+                    
                 {cartItemCount > 0 && (
-                    <span className="absolute -top-3 right-5 bg-gray-300 text-white text-sm py-[0.9px] px-[4px] rounded-full">
-                        <span className='p-1 py-1 text-[13px] font-light text-white'>
+                    <span className="absolute fa-flip-horizontal top-[-0.7rem] left-3 bg-gray-900 text-white text-sm py-[0.9px] px-[4px] rounded-full">
+                        <span className='py-[1px] p-[5px] text-[10px] font-light text-white'>
                             {cartItemCount}
                         </span>
-
                     </span>
                 )}
             </i>
@@ -68,20 +69,6 @@ function NavbarCart() {
                                 <div key={index} className="flex items-center flex-wrap justify-between mb-5 border-b">
                                     <img className="w-20 h-20 mb-4 rounded-sm" src={item.imag} alt={item.name} />
                                     <div className="mx-4 flex-1">
-                                        {/* <div className="flex items-center my-2">
-                                            <i onClick={() =>
-                                                updateQuantity(item.product_id, item.size, item.quantity - 1)
-                                            }
-                                                disabled={item.quantity <= 1} className="cursor-pointer text-2xl text-gray-400 fa-solid fa-circle-minus"></i>
-
-                                            <span className="mx-5 text-gray-600 flex items-center">{item.quantity}</span>
-
-                                            <i onClick={() =>
-                                                updateQuantity(item.product_id, item.size, item.quantity + 1)
-                                            }
-                                                className="cursor-pointer text-2xl text-gray-400 fa-solid fa-circle-plus"></i>
-                                        </div> */}
-
                                         <div className="flex items-center my-2">
                                             <i
                                                 onClick={() => updateQuantity(item.product_id, item.size, item.quantity - 1)}
