@@ -1,8 +1,8 @@
 
 import React from "react";
-import Hoodies from "../../components/Sections/Hoodies/Hoodies";
-import Header from "../../components/Header/Header";
+ import Header from "../../components/Header/Header";
 import { Helmet } from "react-helmet-async";
+import Sections from "../../components/Sections/Sections";
 export default function Home() {
 
 
@@ -15,7 +15,7 @@ export default function Home() {
       <Header />
       <div className="mx-auto mt-8 pt-5 pb-8">
         <div className="mx-auto mt-8 pt-5 pb-8">
-          <Hoodies />
+          <Sections />
         </div>
       </div>
     </React.Fragment>
