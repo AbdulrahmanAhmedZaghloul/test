@@ -1,79 +1,77 @@
-// import React from 'react'
-
-import SvgContect from "../../Svg/SvgContect"
+import React from 'react'
 
 function ContectThere() {
     return (
 
-        <div className="container flex justify-between flex-wrap mx-auto items-center">
-            <div className="lg:w-1/2 md:w-[40%] mx-auto py-9">
-                <SvgContect />
+        <React.Fragment>
+
+
+            <div className='mb-20 mt-10 border  rounded-3xl container p-9 mx-auto'>
+                <h1 className='text-center text-pink-600 font-normal text-3xl tracking-widest'>Follow us on social media</h1>
+
+                <div className='flex justify-between flex-wrap'>
+                    <div className='my-10 w-1/2 p-9 mx-auto'>
+                        <a
+                            href="https://wa.me/201097184660"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border rounded-3xl p-9 shadow-md flex items-center"
+                        >
+                            <div className='flex items-center'>
+                                <div className='border p-4 px-5 bg-green-800 rounded-full'>
+                                    <i className="fa-solid fa-phone text-white text-xl"></i>
+                                </div>
+                                <span className='mx-3 font-normal tracking-widest text-xl'>phone+201097184660</span>
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                    <div className='my-10 w-1/2 p-9 mx-auto'>
+                        <a
+                             href="https://www.instagram.com/cench.in/?igsh=dmY4OWFyMGIzZ2Jk"
+                             target="_blank"
+                             rel="noopener noreferrer"
+                            className="border rounded-3xl p-9 shadow-md flex items-center"
+                        >
+                            <div className='flex items-center'>
+                                <div className='border p-4 px-5 bg-pink-500 rounded-full'>
+                                    <i className="fa-brands fa-instagram text-white text-xl"></i>
+                                </div>
+                                <span className='mx-3 font-normal tracking-widest text-xl'>instagram.com/cench.in</span>
+                            </div>
+
+                        </a>
+
+                    </div>
+                    
+                    <div className='my-10 w-1/2 p-9 mx-auto'>
+                        <a
+                               href="http://www.tiktok.com/@cench.in"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                            className="border rounded-3xl p-9 shadow-md flex items-center"
+                        >
+                            <div className='flex items-center'>
+                                <div className='border p-4 px-5 bg-black rounded-full'>
+                                    <i className="fa-brands fa-tiktok text-white text-xl"></i>
+                                </div>
+                                <span className='mx-3 font-normal tracking-widest text-xl'>tiktok.com/@cench.in</span>
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
             </div>
 
-            <form className=" lg:w-1/2 md:w-[40%] mx-auto p-5">
-                <h1 className="text-gray-700 text-2xl font-bold text-center mb-4">Talk to Us</h1>
+        </React.Fragment>
 
-                {/* Name */}
-                <div className="relative mb-4">
-                    <label htmlFor="formName" className="absolute left-3 top-3">
-                        <i className="feather feather-user" />
-                    </label>
-                    <input
-                        type="text"
-                        id="formName"
-                        className="pl-10 p-3 w-full border border-gray-300 rounded-lg text-lg focus:outline-none focus:border-blue-500"
-                        placeholder="Name"
-                    />
-                </div>
-
-                {/* Numbar */}
-                <div className="relative mb-4">
-                    <label htmlFor="formName" className="absolute left-3 top-3">
-                        <i className="feather feather-user" />
-                    </label>
-                    <input
-                        type="number"
-                        id="formName"
-                        className="pl-10 p-3 w-full border border-gray-300 rounded-lg text-lg focus:outline-none focus:border-blue-500"
-                        placeholder="Number"
-                    />
-                </div>
-
-                {/* E-mail */}
-                <div className="relative mb-4">
-                    <label htmlFor="formEmail" className="absolute left-3 top-3">
-                        <i className="feather feather-mail" />
-                    </label>
-                    <input
-                        type="email"
-                        id="formEmail"
-                        className="pl-10 p-3 w-full border border-gray-300 rounded-lg text-lg focus:outline-none focus:border-blue-500"
-                        placeholder="E-mail"
-                    />
-                </div>
-
-                {/* Message */}
-                <div className="mb-4">
-                    <textarea
-                        id="formMessage"
-                        className="p-3 w-full border border-gray-300 rounded-lg text-lg focus:outline-none focus:border-blue-500"
-                        rows={7}
-                        placeholder="Message"
-                    />
-                </div>
-
-                {/* Submit btn */}
-                <div className="text-center">
-                    <button
-                        type="submit"
-                        className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition duration-200"
-                    >
-                        Send message
-                    </button>
-                </div>
-            </form>
-
-        </div>
     )
 }
 

@@ -55,15 +55,18 @@ export default function Footer() {
                 the latest fashion trends and the best quality
               </p>
 
-              <div className="ms-4 mt-8">
+              <div className="ms-4 mt-8 flex">
                 <a href="https://www.instagram.com/cench.in/?igsh=dmY4OWFyMGIzZ2Jk" target="_blank" rel="noopener noreferrer">
-                  <i className="text-white mx-2 text-xl fa-brands fa-instagram"></i>
+                  <i className="text-pink-500 mx-2 text-2xl fa-brands fa-instagram"></i>
                 </a>
+                <span className="h-10 bg-gray-100 w-[0.5px] mx-3 z-50"></span>
                 <a href="http://www.tiktok.com/@cench.in" target="_blank" rel="noopener noreferrer">
-                  <i className="text-white mx-2 text-xl fa-brands fa-tiktok"></i>
+                  <i className="text-black mx-2 text-2xl fa-brands fa-tiktok"></i>
                 </a>
+                <span className="h-10 bg-gray-100 w-[0.5px] mx-3 z-50"></span>
+
                 <a href="https://wa.me/201097184660" target="_blank" rel="noopener noreferrer">
-                  <i className="text-white mx-2 text-xl fa-brands fa-brands fa-whatsapp"></i>
+                  <i className="text-green-500 mx-2 text-2xl fa-brands fa-brands fa-whatsapp"></i>
                 </a>
               </div>
             </div>

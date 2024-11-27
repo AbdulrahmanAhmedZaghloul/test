@@ -34,13 +34,13 @@ function Navbar() {
                     <div className="flex items-center mx-4 justify-end">
 
                         <a href="https://www.instagram.com/cench.in/?igsh=dmY4OWFyMGIzZ2Jk" target="_blank" rel="noopener noreferrer">
-                            <i className={` ${isSticky ? 'text-pink-500 mx-2 fa-brands fa-instagram' : 'text-pink-500 mx-2 fa-brands fa-instagram'}`}></i>
+                            <i className={` ${isSticky ? 'text-pink-500 mx-4 text-xl fa-brands fa-instagram' : 'text-pink-500 mx-4 text-xl fa-brands fa-instagram'}`}></i>
                         </a>
                         <a href="http://www.tiktok.com/@cench.in" target="_blank" rel="noopener noreferrer">
-                            <i className={` ${isSticky ? 'text-pink-500 mx-2 fa-brands fa-tiktok' : 'text-pink-500 mx-2 fa-brands fa-tiktok'}`}></i>
+                            <i className={` ${isSticky ? 'text-black mx-4 text-xl fa-brands fa-tiktok' : 'text-black mx-4 text-xl fa-brands fa-tiktok'}`}></i>
                         </a>
                         <a href="https://wa.me/201097184660" target="_blank" rel="noopener noreferrer">
-                            <i className={` ${isSticky ? 'text-pink-500 mx-2 fa-brands fa-whatsapp' : 'text-pink-500 mx-2 fa-brands fa-whatsapp'}`}></i>
+                            <i className={` ${isSticky ? 'text-green-500 mx-4 text-xl fa-brands fa-whatsapp' : 'text-green-500 mx-4 text-xl fa-brands fa-whatsapp'}`}></i>
                         </a>
 
                         <Link to={'/'} className='ms-auto flex  md:hidden lg:hidden justify-center'>
