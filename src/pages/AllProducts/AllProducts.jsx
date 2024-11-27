@@ -7,11 +7,10 @@ import { Helmet } from 'react-helmet-async';
 import iconimage from '../../assets/image/black.png'
 
 function AllProducts() {
-    const { id } = useParams(); // الحصول على ID الفئة من الرابط
+    const { id } = useParams(); 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    console.log(products);
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -27,12 +26,9 @@ function AllProducts() {
                 setLoading(false);
             }
         };
-
         fetchProducts();
     }, [id]);
-
     if (error) return <p>Error: {error}</p>;
-
     return (
         <React.Fragment>
             <Helmet>
@@ -94,5 +90,4 @@ function AllProducts() {
         </React.Fragment>
     );
 }
-
 export default AllProducts;

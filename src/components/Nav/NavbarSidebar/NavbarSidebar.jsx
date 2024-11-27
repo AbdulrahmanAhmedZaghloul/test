@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function NavbarSidebar() {
+    const [isSticky, setIsSticky] = useState(false);
     const [categories, setCategories] = useState([]);
     const [error, setError] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
@@ -31,6 +32,19 @@ function NavbarSidebar() {
         fetchCategories();
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsSticky(true);
+            } else {
+                setIsSticky(false);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -52,7 +66,7 @@ function NavbarSidebar() {
     return (
         <React.Fragment>
             <button onClick={toggleSidebar} className="p-3">
-                <i className="text-black text-2xl fa-solid fa-bars"></i>
+                <i className={` ${isSticky ? 'text-pink-500 mx-2 text-2xl fa-solid fa-bars' : 'text-pink-600 mx-2 text-2xl fa-solid fa-bars'}`}></i>
             </button>
             <div ref={sidebarRef} className={` fixed top-0 left-0 h-full w-64 bg-gray-100 shadow-2xl border p-4 transform transition-transform duration-300 ${isOpen ? 'translate-x-0 z-[2322122]' : '-translate-x-full z-[2322122]'}`}>
                 <button onClick={toggleSidebar} className="text-black border-b me-auto flex justify-end text-end w-full text-xl p-2 mb-4 hover:text-gray-800">
@@ -95,6 +109,7 @@ function NavbarSidebar() {
 
                 </ul>
             </div>
+            
         </React.Fragment>
     )
 }

@@ -23,7 +23,7 @@ let routering = createHashRouter([
       { path: "/home", element: <Home /> },
       { path: "/AboutUs", element: <AboutUs /> },
       { path: "/ContentUs", element: <ContentUs /> },
-       { path: "/product/:id", element: <ProductDetails /> },
+       { path: "/product/:id/:product", element: <ProductDetails /> },
       { path: "/category/:id", element: <AllProducts /> },
        { path: "/OrderUsers", element: <OrderUsers /> },
       { path: "*", element: <Erorr /> },
@@ -34,6 +34,7 @@ function App() {
   return (<>
     <HelmetProvider>
       <CartProvider >
+        
         <RouterProvider router={routering}>
         </RouterProvider>
       </CartProvider>

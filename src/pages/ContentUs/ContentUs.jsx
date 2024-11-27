@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Loading from '../../components/Loading/Loading'; // استيراد مكون التحميل
+import Loading from '../../components/Loading/Loading'; 
 import { Helmet } from 'react-helmet-async';
-import ContectTwo from '../../components/SectionsContectUs/ContectTwo/ContectTwo';
 import ContectThere from '../../components/SectionsContectUs/ContectThere/ContectThere';
-import ContectMap from '../../components/SectionsContectUs/ContectMap/ContectMap';
 import iconimage from '../../assets/image/black.png'
 
 function ContentUs() {
@@ -29,17 +27,13 @@ function ContentUs() {
                 <link rel="icon" href={iconimage} />
 
             </Helmet>
-            <main className="mt-[9.5rem]">
-                <h1 className='text-5xl mt-6 pt-2 text-center tracking-widest text-gray-700 font-semibold'>Contact Us</h1>
+            <main className="mt-48 pt-5 mb-20">
                 <div className='flex justify-center items-center my-3'>
-                    <Link className='text-[19px] text-gray-700 font-medium tracking-widest' to={"/"}>home </Link>
+                    <Link className='text-[29px] text-gray-700 font-medium tracking-widest' to={"/"}>home </Link>
                     <span className='mx-2'>/</span>
-                    <Link className='text-[19px] text-gray-700 font-medium tracking-widest' to={"/ContentUs"}>ContentUs </Link>
+                    <Link className='text-[29px] text-gray-700 font-medium tracking-widest' to={"/ContentUs"}>ContentUs </Link>
                 </div>
-                <ContectTwo />
-                <ContectThere />
-                <ContectMap />
-                
+                <ContectThere />                
             </main>
         </React.Fragment>
 

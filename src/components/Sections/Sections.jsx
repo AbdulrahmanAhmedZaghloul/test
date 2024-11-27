@@ -9,7 +9,6 @@ function Sections() {
     const [products, setProducts] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
     useEffect(() => {
         const fetchCategories = async () => {
             try {
@@ -48,11 +47,11 @@ function Sections() {
             fetchProducts();
         }
     }, [categories]);
+    console.log(products);
 
     if (error) return <p>Error: {error}</p>;
 
     return (
-
         <React.Fragment>
             {loading ? (
                 <Loading />
@@ -79,7 +78,7 @@ function Sections() {
                                         key={product?.id}
                                         className="xl:w-[25%] lg:w-[30%] md:w-[50%] w-[80%] p-5"
                                     >
-                                        <Link to={`/product/${product.id}`} state={{ product }}>
+                                        <Link to={`/product/${product.id}/${category?.id}`} state={{ product }}>
                                             <div className="relative group m-3 overflow-hidden">
                                                 <img
                                                     className="w-full object-contain"
