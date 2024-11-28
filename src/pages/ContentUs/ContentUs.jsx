@@ -4,9 +4,11 @@ import Loading from '../../components/Loading/Loading';
 import { Helmet } from 'react-helmet-async';
 import ContectThere from '../../components/SectionsContectUs/ContectThere/ContectThere';
 import iconimage from '../../assets/image/black.png'
+import { useTranslation } from 'react-i18next';
 
 function ContentUs() {
     const [loading, setLoading] = useState(true);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -29,9 +31,9 @@ function ContentUs() {
             </Helmet>
             <main className="mt-48 pt-5 mb-20">
                 <div className='flex justify-center items-center my-3'>
-                    <Link className='text-[29px] text-gray-700 font-medium tracking-widest' to={"/"}>home </Link>
+                    <Link className='text-[29px] text-gray-700 font-medium tracking-widest' to={"/"}>{t("nav.Home")}</Link>
                     <span className='mx-2'>/</span>
-                    <Link className='text-[29px] text-gray-700 font-medium tracking-widest' to={"/ContentUs"}>ContentUs </Link>
+                    <Link className='text-[29px] text-gray-700 font-medium tracking-widest' to={"/ContentUs"}>{t("nav.ContentUs")} </Link>
                 </div>
                 <ContectThere />                
             </main>

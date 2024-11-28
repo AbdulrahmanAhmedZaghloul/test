@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useCart } from '../../../context/CartContext';
- 
+import { useTranslation } from 'react-i18next';
+
 function DetailsOrdes() {
+    const { t } = useTranslation();
 
     const [cartItemCount, setCartItemCount] = useState(0);
     const { cart } = useCart();
@@ -19,11 +21,11 @@ function DetailsOrdes() {
             <div className='md:w-1/2 w-[90%] mx-auto p-6 '>
                 <div className='md:container border p-5 '>
                     <h3 className=' pb-6 text-2xl font-bold text-gray-500 ms-4 tracking-widest'>
-                        Your order
+                        {t("from.Yourorder")}
                     </h3>
                     <>
                         <div className='flex justify-between p-6 border-b '>
-                            <p className='text-gray-500'>Product</p>
+                            <p className='text-gray-500'>{t("from.Product")}</p>
                             <p className='text-gray-500'>{cartItemCount}</p>
                         </div>
 
@@ -35,7 +37,7 @@ function DetailsOrdes() {
                         ))}
 
                         <div className='flex justify-between p-6 border-b border-t '>
-                            <p className='text-gray-500'>Subtotal</p>
+                            <p className='text-gray-500'>{t("cart.total")}</p>
                             <p className='text-gray-500'>Total: LE {cart.reduce((total, item) => total + item.total_price, 0)}                                </p>
                         </div>
                     </>

@@ -21,11 +21,9 @@ export default function OrderUsers() {
                 <link rel="icon" href={iconimage} />
 
             </Helmet>
-            <h1 className="text-2xl font-bold mt-16 mb-6 pt-32 text-gray-500 ms-9 tracking-widest">
-                Check order
-            </h1>
+            
 
-            <div className="container flex flex-wrap justify-between items- mx-auto mb-16">
+            <div className="container flex flex-wrap justify-between items- mx-auto mt-60 mb-16">
              
               <FromOrdes/>
 

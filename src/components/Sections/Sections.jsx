@@ -76,14 +76,14 @@ function Sections() {
                                 {products[category?.id]?.slice(0, 4).map((product) => (
                                     <div
                                         key={product?.id}
-                                        className="xl:w-[25%] lg:w-[30%] md:w-[50%] w-[80%] p-5"
+                                        className="xl:w-[25%]  lg:w-[30%] md:w-[50%] w-[80%] p-5"
                                     >
-                                        <Link to={`/product/${product.id}/${category?.id}`} state={{ product }}>
-                                            <div className="relative group m-3 overflow-hidden">
+                                        <Link className='' to={`/product/${product.id}/${category?.id}`} state={{ product }}>
+                                            <div className="relative border group m-3 overflow-hidden">
                                                 <img
                                                     className="w-full object-contain"
                                                     src={product?.imag}
-                                                    alt={product?.name}
+                                                    alt={product?.category_name}
                                                 />
                                                 <div className="absolute inset-0 bg-black opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
                                                 <div className="absolute inset-x-0 top-100 group-hover:top-0 flex flex-col justify-center transform translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
@@ -100,10 +100,10 @@ function Sections() {
 
                                                 </div>
                                             </div>
-                                            <div className="px-2 mt-2">
+                                            <div className="px-2 mt-2 ">
                                                 <div className="flex justify-between mt-4 mx-auto text-center">
                                                     <p className="text-center text-gray-800 text-base font-normal">
-                                                        {product?.name}
+                                                        {product?.category_name}
                                                     </p>
                                                     <span className="text-gray-800 text-base tracking-widest">
                                                         LE {product?.price}

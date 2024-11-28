@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 function NavbarSidebar() {
     const [isSticky, setIsSticky] = useState(false);
@@ -8,7 +9,9 @@ function NavbarSidebar() {
     const [error, setError] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
     const [isCategoryOpen, setIsCategoryOpen] = useState(false); // State for category dropdown
-    const sidebarRef = useRef(null); 
+    const sidebarRef = useRef(null);
+    const { t } = useTranslation();
+
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
@@ -76,12 +79,13 @@ function NavbarSidebar() {
                 </button>
                 <ul >
                     <li className="text-black hover:text-gray-800 mb-2 p-2">
-                        <Link className='cursor-pointer px-4 tracking-widest' to={'/Home'}>Home</Link>
+                        <Link className='cursor-pointer px-4 tracking-widest'
+                            to={'/Home'}>{t("nav.Home")}</Link>
                     </li>
                     <li className="text-gray-700 hover:text-gray-800 mb-2 p-2">
                         <div onClick={toggleCategory} className="cursor-pointer flex justify-between items-center">
                             <p className='px-4 tracking-widest'>
-                                products
+                            {t("nav.products")}
                             </p>
                             <i className="text-[14px] text-gray-700 fa-solid fa-chevron-up fa-rotate-180"></i>
                         </div>
@@ -101,15 +105,17 @@ function NavbarSidebar() {
                         )}
                     </li>
                     <li className="text-black hover:text-gray-800 mb-2 p-2">
-                        <Link className='cursor-pointer px-4 tracking-widest' to={'/AboutUs'}>AboutUs</Link>
+                        <Link className='cursor-pointer px-4 tracking-widest'
+                         to={'/AboutUs'}>{t("nav.AboutUS")}</Link>
                     </li>
                     <li className="text-black hover:text-gray-800 mb-2 p-2">
-                        <Link className='cursor-pointer px-4 tracking-widest' to={'/ContentUs'}>ContentUs</Link>
+                        <Link className='cursor-pointer px-4 tracking-widest'
+                         to={'/ContentUs'}>{t("nav.ContentUs")}</Link>
                     </li>
 
                 </ul>
             </div>
-            
+
         </React.Fragment>
     )
 }

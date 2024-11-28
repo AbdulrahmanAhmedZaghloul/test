@@ -1,14 +1,13 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 
 function ContectThere() {
+    const { t } = useTranslation();
+
     return (
-
         <React.Fragment>
-
-
             <div className='mb-20 mt-10 border  rounded-3xl container p-9 mx-auto'>
-                <h1 className='text-center text-pink-600 font-normal text-3xl tracking-widest'>Follow us on social media</h1>
-
+                <h1 className='text-center text-pink-600 font-normal text-3xl tracking-widest'>{t("content.Follow")}</h1>
                 <div className='flex justify-between flex-wrap'>
                     <div className='my-10 w-1/2 p-9 mx-auto'>
                         <a
@@ -23,9 +22,7 @@ function ContectThere() {
                                 </div>
                                 <span className='mx-3 font-normal tracking-widest text-xl'>phone+201097184660</span>
                             </div>
-
                         </a>
-
                     </div>
 
                     <div className='my-10 w-1/2 p-9 mx-auto'>
@@ -41,11 +38,8 @@ function ContectThere() {
                                 </div>
                                 <span className='mx-3 font-normal tracking-widest text-xl'>instagram.com/cench.in</span>
                             </div>
-
                         </a>
-
                     </div>
-                    
                     <div className='my-10 w-1/2 p-9 mx-auto'>
                         <a
                                href="http://www.tiktok.com/@cench.in"
@@ -59,19 +53,11 @@ function ContectThere() {
                                 </div>
                                 <span className='mx-3 font-normal tracking-widest text-xl'>tiktok.com/@cench.in</span>
                             </div>
-
                         </a>
-
                     </div>
-
                 </div>
-
-
-
             </div>
-
         </React.Fragment>
-
     )
 }
 

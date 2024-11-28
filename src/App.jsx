@@ -14,6 +14,8 @@ import Erorr from "./components/Erorr/Erorr";
 import { CartProvider } from './context/CartContext';
 import AllProducts from './pages/AllProducts/AllProducts';
 
+import './i18n/i18n';
+import Search from './pages/Search/Search';
 let routering = createHashRouter([
   {
     path: "",
@@ -23,6 +25,7 @@ let routering = createHashRouter([
       { path: "/home", element: <Home /> },
       { path: "/AboutUs", element: <AboutUs /> },
       { path: "/ContentUs", element: <ContentUs /> },
+      { path: "/search", element: <Search /> },
        { path: "/product/:id/:product", element: <ProductDetails /> },
       { path: "/category/:id", element: <AllProducts /> },
        { path: "/OrderUsers", element: <OrderUsers /> },
@@ -34,7 +37,6 @@ function App() {
   return (<>
     <HelmetProvider>
       <CartProvider >
-        
         <RouterProvider router={routering}>
         </RouterProvider>
       </CartProvider>

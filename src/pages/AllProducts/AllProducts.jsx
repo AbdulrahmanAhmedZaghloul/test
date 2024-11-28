@@ -36,8 +36,7 @@ function AllProducts() {
                 <link rel="icon" href={iconimage} />
             </Helmet>
             {loading ? <Loading /> : (<>
-                <section className="my-16 mt-36 py-6">
-                    <h2 className="text-center my-5 text-2xl font-semibold tracking-wider text-gray-500"><Link to={`/`}> Home </Link> / All Products</h2>
+                <section className="my-16 mt-44 py-10">
                     <div className="flex flex-wrap justify-center items-center">
                         {products.map((product) => (
                             <div

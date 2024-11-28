@@ -6,9 +6,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import iconimage from '../../assets/image/black.png'
 import { Helmet } from 'react-helmet-async';
 import RecentProduct from '../../components/RecentProduct/RecentProduct';
+import { useTranslation } from 'react-i18next';
 
 function ProductDetails() {
     const location = useLocation();
+    const { t } = useTranslation();
+
     const id = useParams();
     const product = location.state?.product;
     const [selectedSize, setSelectedSize] = useState('');
@@ -32,7 +35,7 @@ function ProductDetails() {
         const newCartItem = {
             product_id: product.id,
             size_id: sizeDetails?.size_id,
-            name: product.name,
+            name: product.category_name,
             imag: product.imag,
             quantity: Number(quantity),
             size: selectedSize,
@@ -42,6 +45,7 @@ function ProductDetails() {
         addToCart(newCartItem);
         toast.success(`Product added to cart`, { autoClose: 3000 });
     };
+    console.log(product);
     return (
         <React.Fragment>
             <Helmet>
@@ -54,13 +58,13 @@ function ProductDetails() {
                         <img
                             className="w-[70%] mx-auto object-contain mb-4"
                             src={product?.imag}
-                            alt={product?.name}
+                            alt={product?.category_name}
                         />
                     </div>
                     <div className="xl:w-[50%] mx-auto ms:w-[80%] p-5">
 
                         <p className="tracking-[3px] text-gray-500 text-4xl mt-9 mb-5 font-medium">
-                            {product?.name}
+                            {product?.category_name}
                         </p>
                         <span className="text-pink-500 text-base tracking-widest mb-3">LE {product?.price}</span>                        <div className="mb-4">
                             <label className="block  text-pink-500 text-lg font-semibold mb-2 mt-4">Size :</label>
@@ -78,7 +82,6 @@ function ProductDetails() {
                                     </button>
                                 ))}
                             </div>
-
                         </div>
 
                         <div className="mb-4">
@@ -109,7 +112,7 @@ function ProductDetails() {
                             <div className='w-3/4 mx-auto'>
                                 <button onClick={handleAddToCart}
                                     className='border border-pink-500 hover:border-none mx-2 shadow-sm my-4 p-1 py-2 px-3 w-full hover:bg-[#242323] hover:text-pink-500 -skew-x-[25deg] hover:-skew-x-[5deg] transition-transform'>
-                                    ADD TO CART
+                                    {t("productId.add")}
                                 </button>
                             </div>
                         </div>

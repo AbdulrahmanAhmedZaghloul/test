@@ -4,8 +4,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { useCart } from '../../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function FromOrdes() {
+    const { t } = useTranslation();
+
     const [formData, setFormData] = useState({
         name: '',
         company_name: '',
@@ -59,7 +62,7 @@ function FromOrdes() {
             toast.success(`Order placed ${response.data.status}`, { autoClose: 3000 });
             setTimeout(() => {
                 navigate('/');
-            }, 3000);
+            }, 5000);
         } catch (error) {
             toast.error('Failed to place the order. Please try again.', { autoClose: 3000 });
             console.error('Error:', error);
@@ -71,11 +74,9 @@ function FromOrdes() {
     return (
         <React.Fragment>
             <form className="md:w-1/2 w-[90%] mx-auto p-3" onSubmit={handleSubmit}>
-                <h2 className="border-b pb-6 text-2xl font-bold text-gray-400 ms-4 tracking-widest">
-                    Billing details
-                </h2>
+               
                 {Object.keys(formData).map((key) => (
-                    <div className="px-4" key={key}>
+                    <div className="px-4 border-t" key={key}>
                         <label
                             className="text-start flex justify-start my-3 text-gray-400 text-[1rem] tracking-widest ms-auto"
                             htmlFor={key}
@@ -98,16 +99,18 @@ function FromOrdes() {
                     <button
                         ref={buttonRef}
                         type="submit"
-                        className={`mx-5 rounded w-fit bg-gray-500 font-normal text-white flex items-center py-2 px-3 justify-end my-5 ${
-                            isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
-                        }`}
+                        className={`mx-5 rounded w-fit bg-gray-500 font-normal text-white flex items-center py-2 px-3 justify-end my-5 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                            }`}
                         disabled={isSubmitting}
                     >
-                        {isSubmitting ? 'Placing Order...' : 'Place Order'}
+                        {isSubmitting ?
+                            <span>{t('from.order')}...</span> :
+                            <span>
+                                {t('from.order')}
+                            </span>}
                     </button>
                 </div>
 
-                {/* Toast Container */}
                 <ToastContainer />
             </form>
         </React.Fragment>

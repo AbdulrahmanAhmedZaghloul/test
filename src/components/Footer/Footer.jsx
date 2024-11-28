@@ -27,12 +27,12 @@ export default function Footer() {
   }
   return (
     <React.Fragment>
-      <footer className="bg-[#727071] -mt-10">
+      <footer className="bg-gray-800 -mt-10">
         <div className="flex w-[90%] justify-between mx-auto py-10 flex-wrap">
           <div className="md:w[30%] ">
             <img className="w-1/4" src={footer} alt="" />
           </div>
-          <div className="md:w[30%] ">
+          <div className="md:w[30%]">
             <ul>
               <li className="pb-3 tracking-[0.2rem] text-white text-[10px] uppercase font-bold my-1">Main menu</li>
               {categories.map((category) => (
