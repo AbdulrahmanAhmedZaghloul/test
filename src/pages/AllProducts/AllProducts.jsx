@@ -44,7 +44,7 @@ function AllProducts() {
                                 className="xl:w-[25%] lg:w-[30%] md:w-[50%] w-[80%] p-5"
                             >
                                 <Link
-                                    to={`/product/${product.id}`}
+                                    to={`/product/${product.id}/${id}`}
                                     state={{ product }}
                                 >
                                     <div className="relative group m-3 overflow-hidden">
