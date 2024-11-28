@@ -20,16 +20,16 @@ function ProductDetails() {
 
     const handleAddToCart = () => {
         if (!selectedSize) {
-            toast.error(`Please select a size`, { autoClose: 3000 });
+            toast.error(`${t("cart.errorSize")}`, { autoClose: 3000 });
             return;
         };
         const sizeDetails = product.stock.find((s) => s.size === selectedSize);
         if (!sizeDetails) {
-            toast.error(`Invalid size selected`, { autoClose: 3000 });
+            toast.error(`${t("cart.errorSize")}`, { autoClose: 3000 });
             return;
         };
         if (quantity < 1) {
-            toast.error(`Please choose a number`, { autoClose: 3000 });
+            toast.error(`${t("cart.errorSizee")}`, { autoClose: 3000 });
             return;
         };
         const newCartItem = {
@@ -43,7 +43,7 @@ function ProductDetails() {
             total_price: sizeDetails.price * Number(quantity),
         };
         addToCart(newCartItem);
-        toast.success(`Product added to cart`, { autoClose: 3000 });
+        toast.success(`${t("cart.success")}`, { autoClose: 3000 });
     };
     console.log(product);
     return (

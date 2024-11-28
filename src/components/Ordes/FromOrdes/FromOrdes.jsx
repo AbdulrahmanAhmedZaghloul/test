@@ -37,7 +37,7 @@ function FromOrdes() {
 
         setIsSubmitting(true);
 
-        toast.info('Processing your order...', { autoClose: 2000 });
+        toast.info(t('from.order') + '...', { autoClose: 2000 });
 
         const products = cart.map((item) => ({
             product_id: item.product_id,
@@ -59,12 +59,12 @@ function FromOrdes() {
         try {
             const response = await axios.post('https://backend.cenchh.com/api/user/order/store', orderData);
             clearCart();
-            toast.success(`Order placed ${response.data.status}`, { autoClose: 3000 });
+            toast.success(`${t('from.order')} ${response.data.status}`, { autoClose: 3000 });
             setTimeout(() => {
                 navigate('/');
             }, 5000);
         } catch (error) {
-            toast.error('Failed to place the order. Please try again.', { autoClose: 3000 });
+            toast.error(t('from.error') + ' ' + t('cart.check'), { autoClose: 3000 });
             console.error('Error:', error);
         } finally {
             setIsSubmitting(false);
@@ -74,7 +74,6 @@ function FromOrdes() {
     return (
         <React.Fragment>
             <form className="md:w-1/2 w-[90%] mx-auto p-3" onSubmit={handleSubmit}>
-               
                 {Object.keys(formData).map((key) => (
                     <div className="px-4 border-t" key={key}>
                         <label
@@ -103,15 +102,15 @@ function FromOrdes() {
                             }`}
                         disabled={isSubmitting}
                     >
-                        {isSubmitting ?
-                            <span>{t('from.order')}...</span> :
-                            <span>
-                                {t('from.order')}
-                            </span>}
+                        {isSubmitting ? (
+                            <span>{t('from.order')}...</span>
+                        ) : (
+                            <span>{t('from.order')}</span>
+                        )}
                     </button>
                 </div>
 
-                <ToastContainer />
+                <ToastContainer position="bottom-right" reverseOrder={false} />
             </form>
         </React.Fragment>
     );

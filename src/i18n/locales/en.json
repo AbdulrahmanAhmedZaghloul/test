@@ -10,12 +10,16 @@
     "Cart": "Your Cart",
     "check": "check out",
     "total": "SubTotal ",
-    "Taxes": "Taxes and shipping calculated at checkout"
+    "Taxes": "Taxes and shipping calculated at checkout",
+    "errorSize": "Please select a size",
+    "errorSizee": "Invalid size Quantity",
+    "success": "Product added to cart"
   },
   "from": {
     "order": "Confirm order",
     "Product": "Product",
-    "Yourorder": "Your Order"
+    "Yourorder": "Your Order",
+    "error": "Failed to place the order. Please try again"
   },
   "productId": {
     "add": "ADD TO CART"
@@ -29,6 +33,6 @@
     "strive": "We strive to deliver orders as quickly as possible and satisfy the customer in all cases"
   },
   "content": {
-    "Follow":"Follow us on social media"
+    "Follow": "Follow us on social media"
   }
 }
