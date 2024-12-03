@@ -46,7 +46,7 @@ function Navbar() {
                         </a>
 
                         <Link to={'/'} className='ms-auto flex  md:hidden lg:hidden justify-center'>
-                            <img className="flex md:hidden lg:hidden justify-center object-cover w-[6rem] fa-beat-fade  " src={WAT2} alt="" />
+                            <img className="flex md:hidden lg:hidden justify-center object-cover w-[6rem] fa-spin" src={WAT2} alt="" />
                         </Link>
 
                     </div>
@@ -55,7 +55,7 @@ function Navbar() {
                 <div className="container flex justify-between items-center px-5 mx-auto">
                     <NavbarSidebar />
                     <Link to={'/'} className='w-full mx-auto flex justify-center'>
-                        <img className="hidden mx-auto md:flex lg:flex justify-center w-[6rem] fa-beat-fade " src={WAT2} alt="img" />
+                        <img className="hidden mx-auto md:flex lg:flex justify-center w-[8rem] fa-spin" src={WAT2} alt="img" />
                     </Link>
                     <div className="flex items-center">
                         <NavbarCart />
