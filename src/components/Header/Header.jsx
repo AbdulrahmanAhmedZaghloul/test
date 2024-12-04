@@ -13,7 +13,7 @@ function Header() {
       ></video>
 
       <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <img src={img} alt="" />
+        <img src={img} className='fa-beat-fade' alt="" />
       </div>
     </div>
   );

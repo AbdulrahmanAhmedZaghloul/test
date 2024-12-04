@@ -18,23 +18,6 @@ export const CartProvider = ({ children }) => {
         }
     }, [cart]);
 
-    // const addToCart = (item) => {
-    //     setCart((prevCart) => {
-    //         const existingItemIndex = prevCart.findIndex(
-    //             (cartItem) => cartItem.product_id === item.product_id && cartItem.size === item.size
-    //         );
-
-    //         if (existingItemIndex > -1) {
-    //             const updatedCart = [...prevCart];
-    //             updatedCart[existingItemIndex].quantity += item.quantity;
-    //             updatedCart[existingItemIndex].total_price += item.price * item.quantity;
-    //             return updatedCart;
-    //         } else {
-    //             return [...prevCart, item];
-    //         }
-    //     });
-    // };
-
     const addToCart = (newItem) => {
         setCart((prevCart) => {
             const existingItemIndex = prevCart.findIndex(
