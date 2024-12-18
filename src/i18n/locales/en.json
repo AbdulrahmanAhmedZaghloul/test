@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "Home": "Home",
+    "AboutUS": "AboutUS",
+    "products": "products",
+    "ContentUs": "ContentUs"
+  },
+  "cart": {
+    "basket": "The basket is empty",
+    "Cart": "Your Cart",
+    "check": "check out",
+    "total": "SubTotal ",
+    "Taxes": "Taxes and shipping calculated at checkout",
+    "errorSize": "Please select a size",
+    "errorSizee": "Invalid size Quantity",
+    "success": "Product added to cart"
+  },
+  "from": {
+    "order": "Confirm order",
+    "Product": "Product",
+    "Yourorder": "Your Order",
+    "error": "Failed to place the order. Please try again"
+  },
+  "productId": {
+    "add": "ADD TO CART"
+  },
+  "about": {
+    "Who": "Who are we",
+    "goal": "Our goal",
+    "vision": "Our vision",
+    "store": "A store and website that sells clothes with the latest fashion trends and the best quality",
+    "first": "To be the first supporter of the customer and his satisfaction",
+    "strive": "We strive to deliver orders as quickly as possible and satisfy the customer in all cases"
+  },
+  "content": {
+    "Follow": "Follow us on social media"
+  }
+}
